@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>ArcGIS Developers Guide: Display a map (2D)</title>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.19/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.19/"></script>
+
+    <script>
+      require(["esri/config", "esri/Map", "esri/views/MapView"], function (
+        esriConfig,
+        Map,
+        MapView
+      ) {
+        esriConfig.apiKey =
+          "AAPKeabd97297fa44ae191c2421d1d4860e1fa1Tf-85HVmeiMAdlxOe1ZHQOzmBbxs3iszdXOV1OCo1pnwAGor_xLKjlxT3TMJt";
+        const map = new Map({
+          basemap: "arcgis-topographic", // Basemap layer
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [-104.99025, 39.739235],
+          zoom: 13, // scale: 72223.819286
+          container: "viewDiv",
+          constraints: {
+            snapToZoom: false,
+          },
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
